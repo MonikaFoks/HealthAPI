@@ -1,8 +1,38 @@
 ﻿@model IEnumerable<HealthAPI.Models.Weight>
+
 @{
     ViewBag.Title = "Weight";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Weight</h2>
+<h2>Waga</h2>
 
+<p>
+    @Html.ActionLink("Dodaj", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kgs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kgs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -15,9 +15,21 @@ namespace HealthAPI.Models
         public int Diastolic { get; set; }
         [Required]
         public int Systolic { get; set; }
-        public DateTime Date { get; set; }
+        private DateTime? _Date;
+        public DateTime Date
+        {
+            get
+            {
+                if (_Date == null)
+                {
+                    _Date = DateTime.Now;
+                }
+                return _Date.Value;
+            }
+            set { _Date = value; }
+        }
 
-        
+
         [ForeignKey("User")]
         [Required]
         public int userId { get; set; }

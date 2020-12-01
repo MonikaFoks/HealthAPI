@@ -1,8 +1,44 @@
 ﻿@model IEnumerable<HealthAPI.Models.Pressure>
+
 @{
     ViewBag.Title = "Pressure";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Pressure</h2>
+<h2>Ciśnienie</h2>
 
+<p>
+    @Html.ActionLink("Dodaj", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diastolic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Systolic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diastolic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Systolic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

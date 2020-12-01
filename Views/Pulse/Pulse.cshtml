@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<HealthAPI.Models.Pulse>
+
 @{
     ViewBag.Title = "Pulse";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +7,32 @@
 
 <h2>Pulse</h2>
 
+<p>
+    @Html.ActionLink("Dodaj nowy", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bpm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bpm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td> 
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

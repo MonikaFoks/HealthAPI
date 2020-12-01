@@ -21,10 +21,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Ciśnienie", "Pressure", "Pressure")</li>
-                    <li>@Html.ActionLink("Puls", "Pulse", "Pulse")</li>
-                    <li>@Html.ActionLink("Waga", "Weight", "Weight")</li>
-                    <li>@Html.ActionLink("Cukier we krwi", "BloodSugar", "BloodSugar")</li>
+                    @if (Session["id"] != null)
+                    {
+                        <li>@Html.ActionLink("Ciśnienie", "Pressure", "Pressure")</li>
+                        <li>@Html.ActionLink("Puls", "Pulse", "Pulse")</li>
+                        <li>@Html.ActionLink("Waga", "Weight", "Weight")</li>
+                        <li>@Html.ActionLink("Cukier we krwi", "BloodSugar", "BloodSugar")</li>
+                        <li>@Html.ActionLink("Wyloguj", "LogOut", "Login")</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -37,8 +42,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
 </html>

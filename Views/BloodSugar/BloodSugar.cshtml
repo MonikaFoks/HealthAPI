@@ -1,8 +1,38 @@
 ﻿@model IEnumerable<HealthAPI.Models.BloodSugar>
+
 @{
     ViewBag.Title = "BloodSugar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BloodSugar</h2>
+<h2>Cukier we krwi</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mgdL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mgdL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

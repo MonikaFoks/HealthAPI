@@ -27,7 +27,7 @@ namespace HealthAPI.Controllers
                 }
                 else
                 {
-                    Session["login"] = userDetails.Login;
+                    Session["id"] = userDetails.Id;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -38,6 +38,11 @@ namespace HealthAPI.Controllers
             return View();
         }
 
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login", "Login");
+        }
 
         [HttpPost]
         public ActionResult AddUser(User user)
@@ -53,7 +58,6 @@ namespace HealthAPI.Controllers
                 }
                 else
                 {
-                    Session["login"] = userDetails.Login; 
                     return RedirectToAction("Register", "Login");
                 }
             }
