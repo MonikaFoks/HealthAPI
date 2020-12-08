@@ -15,7 +15,7 @@ namespace HealthAPI.Models
         [Required]
         public int Bpm { get; set; }
         private DateTime? _Date;
-        public DateTime Date { 
+        public DateTime? Date { 
             get 
             {
                 if (_Date == null)

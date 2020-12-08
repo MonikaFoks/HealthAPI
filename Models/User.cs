@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace HealthAPI.Models
 {
@@ -17,6 +19,5 @@ namespace HealthAPI.Models
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "To pole jest wymagane.")]
         public string Password { get; set; }
-
     }
 }

@@ -14,7 +14,7 @@ namespace HealthAPI.Models
         [Required]
         public int Kgs { get; set; }
         private DateTime? _Date;
-        public DateTime Date
+        public DateTime? date
         {
             get
             {

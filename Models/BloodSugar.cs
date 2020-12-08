@@ -14,7 +14,7 @@ namespace HealthAPI.Models
         [Required]
         public int mgdL { get; set; }
         private DateTime? _Date;
-        public DateTime Date
+        public DateTime? Date
         {
             get
             {

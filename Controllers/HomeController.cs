@@ -1,8 +1,11 @@
-﻿using System;
+﻿using HealthAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace HealthAPI.Controllers
 {
@@ -25,6 +28,28 @@ namespace HealthAPI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public JsonResult GetUser()
+        {
+            using(Context db = new Context())
+            {
+                List<User> users = db.Users.ToList<User>();
+                var json = JsonConvert.SerializeObject(users);
+                return Json(json, JsonRequestBehavior.AllowGet);
+            }
+             
+        }
+
+        public JsonResult GetPulse()
+        {
+            using (Context db = new Context())
+            {
+                List<Pulse> pulses = db.Pulses.ToList<Pulse>();
+                var json = JsonConvert.SerializeObject(pulses);
+                return Json(json, JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }
